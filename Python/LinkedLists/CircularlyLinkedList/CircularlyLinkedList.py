@@ -1,4 +1,4 @@
-from Data_Structures.CircularlyLinkedList.Node import *
+from Data_Structures.Python.LinkedLists.CircularlyLinkedList.Node import *
 #Data Structures in Python
 
 class CircularlyLinkedList:
@@ -18,7 +18,7 @@ class CircularlyLinkedList:
         """Return, but do not move, the element at the front of the queue.
         :except Raise Empty exception if the queue is empty."""
         if self.is_empty():
-            raise Empty("Queue is empty")
+            raise TypeError("Queue is empty")
         head = self.tail.next
         return head.element
 
@@ -27,7 +27,7 @@ class CircularlyLinkedList:
         :except Raise Empty exception if the queue is empty"""
 
         if self.is_empty():
-            raise Empty("Queue is empty")
+            raise TypeError("Queue is empty")
 
         old_head = self.tail.next
         if self.size == 1:

@@ -1,4 +1,4 @@
-from Data_Structures.DoublyLinkedList.Node import *
+from Data_Structures.Python.LinkedLists.DoublyLinkedList.Node import *
 
 class DoublyLinkedList:
     #A base class providing a Doubly Linked List representation
@@ -19,6 +19,18 @@ class DoublyLinkedList:
     def __len__(self):
         #Return de number of elements in the list
         return self.size
+
+    def append(self, element):
+        if self.is_empty():
+            self.header = Node(element, self.header, self.header)
+        else:
+            current_node = self.trailer
+            previous = current_node
+            current_node.next = Node(element, self.header, self.trailer)
+            current_node = current_node.next
+            current_node.previous = previous
+            self.trailer = current_node
+
 
     def is_empty(self):
         #Return True if list is empty
@@ -52,8 +64,17 @@ class DoublyLinkedList:
         #Return the deleted element
         return element
 
+    def suma(self):
+        suma = 0
+        current_node = self.header
+        while current_node != None:
+            suma += current_node.get_element()
+            current_node = current_node.next
+
+        return suma
+
     def get_list(self):
         current_node = self.header
         while current_node != self.trailer:
             print(current_node.get_element())
-            current_node = self.header.next
+            current_node = current_node.next

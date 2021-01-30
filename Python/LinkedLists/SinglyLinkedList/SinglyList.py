@@ -1,4 +1,3 @@
-from Data_Structures.SinglyLinkedList.Node import *
 # Data Structures in Python
 
 class SinglyList:
@@ -74,6 +73,36 @@ class SinglyList:
         current_node = self.head
         while current_node.get_element() != element:
             current_node = current_node.next
+
+    def index(self, value):
+        current_node = self.head
+        results = []
+        counter = 0
+        while current_node.get_element() != None:
+            if current_node.get_element() == value:
+                results.append(counter)
+                current_node = current_node.next
+            else:
+                counter += 1
+                current_node = current_node.next
+        return results
+
+    def dele(self, i):
+        if self.is_empty():
+            raise TypeError("The list is empty.")
+        current_node = self.head
+        pos = 0
+        while  current_node != None:
+            if i == pos:
+                current_node = current_node.next.next
+                self.size -= 1
+                break
+            else:
+                current_node = current_node.next
+                pos += 1
+        return current_node
+
+
 
 
 """The space usage is O(n), where n is the current number of elements in the stack."""

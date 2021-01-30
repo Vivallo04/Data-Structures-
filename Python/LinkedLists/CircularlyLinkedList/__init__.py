@@ -1,4 +1,4 @@
-from Data_Structures.CircularlyLinkedList.CircularlyLinkedList import *
+from Data_Structures.Python.LinkedLists.CircularlyLinkedList import *
 
 CircularList = CircularlyLinkedList()
 
